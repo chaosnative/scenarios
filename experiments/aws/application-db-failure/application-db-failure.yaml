@@ -1,0 +1,67 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: application-db-failure-sa
+  namespace: default
+  labels:
+    name: application-db-failure-sa
+    app.kubernetes.io/part-of: litmus
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: application-db-failure-sa
+  labels:
+    name: application-db-failure-sa
+    app.kubernetes.io/part-of: litmus
+rules:
+# For creating and monitoring the experiment pod which contains the fault injection logic
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["create","delete","get","list","patch","update"]
+# For updating the events of the chaos progress in the chaosengine and chaosresult CR (litmus custom resources)
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create","get","list","patch","update"]
+# For using secret to performs the authorization
+# And configmap to upload a script which makes the fault injection logic as tunanble
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get","list",]
+# This is used to track the logs of the different expriment component pods
+  - apiGroups: [""]
+    resources: ["pods/log"]
+    verbs: ["get","list","watch"]  
+# It is used for steady state validation (probes) for running a command inside a container and managing it
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["get","list","create"]
+# It is used for configuring and monitor the experiment job to manages its chaos life cycle
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["create","list","get","delete","deletecollection"]
+# It is used for creation, status polling and deletion of litmus chaos resources used within a chaos workflow
+  - apiGroups: ["litmuschaos.io"]
+    resources: ["chaosengines","chaosexperiments","chaosresults"]
+    verbs: ["create","list","get","patch","update","delete"]
+# It is used for creation, status polling and deletion of litmuschaos resources used within a chaos workflow
+  - apiGroups: [""]
+    resources: ["nodes"]
+    verbs: ["get","list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: application-db-failure-sa
+  labels:
+    name: application-db-failure-sa
+    app.kubernetes.io/part-of: litmus
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: application-db-failure-sa
+subjects:
+- kind: ServiceAccount
+  name: application-db-failure-sa
+  namespace: default
