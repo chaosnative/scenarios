@@ -57,6 +57,17 @@ Different Chaos Scenarios are:
     <th>Experiment</th>
     <th>Required Permissions</th>
   </tr>
+
+   <tr>
+    <td>Single Application Component Failure (Pod Delete)</td>
+    <td> <a href="https://github.com/chaosnative/scenarios/blob/main/experiments/generic/pod-delete.yaml"> Click Here </a></td>
+  </tr>
+
+   <tr>
+    <td>Multiple Application Component Failure (Pod Delete)</td>
+    <td> <a href="https://github.com/chaosnative/scenarios/blob/main/experiments/generic/pod-delete.yaml"> Click Here </a></td>
+  </tr>
+  
   <tr>
     <td>Disk Fill</td>
     <td> <a href="https://github.com/chaosnative/scenarios/blob/main/experiments/generic/disk-fill.yaml"> Click Here </a></td>
