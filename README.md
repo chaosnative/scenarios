@@ -64,6 +64,11 @@ Different Chaos Scenarios are:
   </tr>
 
    <tr>
+    <td> Pod Delete</td>
+    <td> <a href="https://github.com/chaosnative/scenarios/blob/main/experiments/generic/pod-delete.yaml"> Click Here </a></td>
+  </tr>
+
+   <tr>
     <td>Single Application Component Failure (Pod Delete)</td>
     <td> <a href="https://github.com/chaosnative/scenarios/blob/main/experiments/generic/pod-delete.yaml"> Click Here </a></td>
   </tr>
