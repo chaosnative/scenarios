@@ -48,6 +48,11 @@ Different Chaos Scenarios are:
     <td>AWS AZ Single Component Failure Chaos</td>
     <td> <a href="https://github.com/chaosnative/scenarios/tree/main/experiments/aws/az-single-component-failure-chaos"> Click Here </a></td>
   </tr>
+
+   <tr>
+    <td>AWS S3 Bucket Failure Chaos</td>
+    <td> <a href="https://github.com/chaosnative/scenarios/tree/main/experiments/aws/aws-s3-bucket-failure-chaos"> Click Here </a></td>
+  </tr> 
 </table>
 
 ## Kubernetes (Generic) Scenarios
@@ -88,4 +93,8 @@ Different Chaos Scenarios are:
     <td> <a href="https://github.com/chaosnative/scenarios/blob/main/experiments/generic/pod-network-latency.yaml"> Click Here </a></td>
   </tr>
 
+  <tr>
+    <td>Middleware Clogging</td>
+    <td> <a href="https://github.com/chaosnative/scenarios/blob/main/experiments/generic/middleware-clogging-chaos.yaml"> Click Here </a></td>
+  </tr>
 </table>
