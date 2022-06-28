@@ -8,7 +8,7 @@
                 "ec2:StartInstances",
                 "ec2:StopInstances"
             ],
-            "Resource": "arn:aws:ec2:region:account-id:instance/*",
+            "Resource": "*",
             "Condition": {
                 "StringEquals": {
                     "aws:ResourceTag/Project": "DataAnalytics",

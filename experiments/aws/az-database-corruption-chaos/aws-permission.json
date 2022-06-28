@@ -8,12 +8,12 @@
                 "ec2:describeInstances",
                 "iam:ListRoles"
             ],
-            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/prod-*"
+            "Resource": "*"
         },
         {
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/prod-*",
+            "Resource": "*",
             "Condition": {
                 "StringEquals": {
                     "iam:PassedToService": "ssm.amazonaws.com"

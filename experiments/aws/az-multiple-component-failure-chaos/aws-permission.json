@@ -3,7 +3,7 @@
     "Statement": [
         {
             "Action": "ec2:*",
-            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/prod-*",
+            "Resource": "*",
             "Effect": "Allow",
             "Condition": {
                 "StringEquals": {
